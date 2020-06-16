@@ -160,9 +160,6 @@ typedef enum
 #endif /*DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2*/
 
 // HACK: Define versionhelpers.h functions manually as MinGW lacks the header
-#define IsWindowsXPOrGreater()                                 \
-    _glfwIsWindowsVersionOrGreaterWin32(HIBYTE(_WIN32_WINNT_WINXP),   \
-                                        LOBYTE(_WIN32_WINNT_WINXP), 0)
 #define IsWindowsVistaOrGreater()                                     \
     _glfwIsWindowsVersionOrGreaterWin32(HIBYTE(_WIN32_WINNT_VISTA),   \
                                         LOBYTE(_WIN32_WINNT_VISTA), 0)
@@ -315,6 +312,7 @@ typedef struct _GLFWwindowWin32
     // Whether to enable framebuffer transparency on DWM
     GLFWbool            transparent;
     GLFWbool            scaleToMonitor;
+    GLFWbool            keymenu;
 
     // The last received cursor position, regardless of source
     int                 lastCursorPosX, lastCursorPosY;
